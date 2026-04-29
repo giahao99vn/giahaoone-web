@@ -1090,21 +1090,48 @@
             camera.position.z = item.geometry.boundingSphere.radius * 2.5;
         }
 
+        // XỬ LÝ UPLOAD NHIỀU FILE CÙNG LÚC (ĐÃ THÊM BẮT LỖI)
         fileInput.addEventListener('change', (e) => {
             const files = Array.from(e.target.files); 
             if (files.length === 0) return;
             
+            let hasError = false;
+            const validFiles = files.filter(file => {
+                if (!file.name.toLowerCase().endsWith('.stl')) {
+                    alert(`Lỗi: File "${file.name}" không đúng định dạng .stl! \nVui lòng chỉ tải lên file thiết kế 3D định dạng STL.`);
+                    hasError = true;
+                    return false;
+                }
+                return true;
+            });
+
+            if (validFiles.length === 0) {
+                fileInput.value = '';
+                return;
+            }
+
             loading.classList.remove('hidden');
             let loadedCount = 0;
 
-            files.forEach(file => {
+            validFiles.forEach(file => {
                 const reader = new FileReader();
                 reader.onload = function(event) {
                     try {
-                        const geometry = new THREE.STLLoader().parse(event.target.result);
+                        const loader = new THREE.STLLoader();
+                        const geometry = loader.parse(event.target.result);
+                        
+                        if (!geometry || geometry.attributes.position === undefined) {
+                            throw new Error("Dữ liệu file trống hoặc lỗi");
+                        }
+
                         const vol = calculateVolume(geometry) / 1000;
-                        geometry.computeBoundingBox(); const box = geometry.boundingBox;
-                        const dims = { x: Math.abs(box.max.x - box.min.x).toFixed(1), y: Math.abs(box.max.y - box.min.y).toFixed(1), z: Math.abs(box.max.z - box.min.z).toFixed(1) };
+                        geometry.computeBoundingBox(); 
+                        const box = geometry.boundingBox;
+                        const dims = { 
+                            x: Math.abs(box.max.x - box.min.x).toFixed(1), 
+                            y: Math.abs(box.max.y - box.min.y).toFixed(1), 
+                            z: Math.abs(box.max.z - box.min.z).toFixed(1) 
+                        };
 
                         cart3D.push({
                             id: Date.now() + Math.random(),
@@ -1113,20 +1140,30 @@
                             geometry: geometry,
                             dims: dims
                         });
-                    } catch (error) { console.error("Lỗi đọc file STL:", file.name); }
+                    } catch (error) { 
+                        console.error("Lỗi đọc file STL:", file.name);
+                        alert(`Không thể đọc dữ liệu từ file "${file.name}". File có thể bị hỏng hoặc sai cấu trúc STL.`);
+                    }
                     
                     loadedCount++;
-                    if(loadedCount === files.length) {
+                    if(loadedCount === validFiles.length) {
                         renderCart();
                         if(cart3D.length > 0) previewItem(cart3D[cart3D.length - 1].id);
                         loading.classList.add('hidden');
                         
                         placeholder.classList.add('opacity-0', 'pointer-events-none');
                         document.getElementById('demo-models').classList.add('hidden');
-                        resetViewerBtn.classList.remove('hidden'); resetViewerBtn.classList.add('flex');
+                        resetViewerBtn.classList.remove('hidden'); 
+                        resetViewerBtn.classList.add('flex');
                         btnZalo3D.classList.remove('hidden');
                     }
                 };
+
+                reader.onerror = function() {
+                    alert(`Lỗi hệ thống khi đọc file "${file.name}".`);
+                    loading.classList.add('hidden');
+                };
+
                 reader.readAsArrayBuffer(file);
             });
             fileInput.value = '';
