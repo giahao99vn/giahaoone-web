@@ -295,6 +295,142 @@
         </div>
     </section>
 
+    <!-- BẮT ĐẦU: TRUNG TÂM SÁNG TẠO (INNOVATION CENTER) -->
+    <section id="innovation-center" class="py-24 bg-[#0a0f16] border-t border-slate-800 relative">
+        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 50% 50%, #D4AF37 1px, transparent 1px); background-size: 30px 30px;"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <!-- Tiêu đề Section -->
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-viet-gold font-bold tracking-wider uppercase text-sm mb-2 block"><i class="fa-solid fa-flask text-brand-500 mr-2"></i>Sản Phẩm Độc Quyền</span>
+                <h2 class="text-3xl md:text-4xl font-black mb-4 tracking-tight text-white">GIAHAOONE Innovation Center</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">Nơi giao thoa giữa thuật toán tối ưu hóa cấu trúc (Generative Design) và nét đẹp văn hóa Việt. Trải nghiệm những sản phẩm vật lý được kiến tạo từ kỹ thuật in 3D công nghiệp.</p>
+            </div>
+
+            <!-- Lưới Sản phẩm -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                
+                <!-- Sản phẩm 1: Đèn Nón Lá (Nghệ thuật & Văn hóa) -->
+                <div class="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl hover:border-viet-gold/50 transition-all group flex flex-col" data-aos="fade-up" data-aos-delay="0">
+                    <div class="relative h-60 bg-slate-800 overflow-hidden flex items-center justify-center p-4">
+                        <div class="absolute top-4 left-4 z-10 flex gap-2">
+                            <span class="px-2 py-1 bg-amber-500/20 text-amber-500 text-[10px] font-bold uppercase rounded border border-amber-500/30">Art & Decor</span>
+                        </div>
+                        <!-- Ảnh mô phỏng (Có thể thay bằng ảnh thật) -->
+                        <img src="https://cdn.jsdelivr.net/gh/giahao99vn/giahaoone/dennonla.png" alt="Đèn Nón Lá 3D" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-black text-white mb-2 group-hover:text-viet-gold transition-colors">Đèn Nón Lá (Bản Lithophane)</h3>
+                            <p class="text-slate-400 text-sm mb-4 line-clamp-3">Thiết kế độc quyền từ Giahaoone. Sự kết hợp giữa biểu tượng văn hóa Việt và kỹ thuật in 3D xuyên sáng, tạo hiệu ứng thị giác ấm áp cho không gian decor cao cấp.</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded"><i class="fa-solid fa-cube mr-1"></i>Nhựa PETG</span>
+                                <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded"><i class="fa-solid fa-lightbulb mr-1"></i>Tích hợp LED</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-800">
+                            <div>
+                                <div class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Giá ưu đãi</div>
+                                <div class="text-2xl font-black text-viet-gold">850.000<span class="text-sm font-bold text-slate-400">đ</span></div>
+                            </div>
+                            <a href="https://zalo.me/0704141237?text=Ch%C3%A0o%20Giahaoone%2C%20t%C3%B4i%20mu%E1%BB%91n%20%C4%91%E1%BA%B7t%20mua%20s%E1%BA%A3n%20ph%E1%BA%A9m%20%C4%90%C3%A8n%20N%C3%B3n%20L%C3%A1%20Lithophane." target="_blank" class="w-12 h-12 rounded-full bg-brand-600 hover:bg-brand-500 text-white flex items-center justify-center transition-all shadow-lg hover:shadow-brand-500/50">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+               <!-- Sản phẩm 2: Tay Đòn Generative Design (Kỹ thuật cơ khí) -->
+                <div class="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl hover:border-blue-500/50 transition-all group flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                    <!-- KHU VỰC HIỂN THỊ FILE 3D (.GLB) -->
+                    <div class="relative h-60 bg-gradient-to-br from-slate-800 to-slate-900 overflow-hidden p-0">
+                        <div class="absolute top-4 left-4 z-10 flex gap-2 pointer-events-none">
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 text-[10px] font-bold uppercase rounded border border-blue-500/30">Engineering</span>
+                        </div>
+                        <div class="absolute top-4 right-4 z-10 pointer-events-none">
+                            <span class="px-2 py-1 bg-red-500/20 text-red-400 text-[10px] font-bold uppercase rounded border border-red-500/30 animate-pulse">Siêu Nhẹ</span>
+                        </div>
+                        
+                        <!-- Thẻ Model Viewer -->
+                        <model-viewer 
+                            src="https://raw.githubusercontent.com/giahao99vn/giahaoone/refs/heads/main/TEN_FILE_TAY_DON.glb" 
+                            alt="Mô hình 3D Tay Đòn Generative Design"
+                            shadow-intensity="1" 
+                            camera-controls 
+                            auto-rotate 
+                            rotation-per-second="30deg"
+                            interaction-prompt="hover"
+                            class="w-full h-full bg-transparent outline-none cursor-grab active:cursor-grabbing">
+                        </model-viewer>
+                    </div>
+
+                    <div class="p-6 flex-grow flex flex-col justify-between pointer-events-auto">
+                        <div>
+                            <h3 class="text-xl font-black text-white mb-2 group-hover:text-blue-400 transition-colors">Tay Đòn Tối Ưu Cấu Trúc (DfAM)</h3>
+                            <p class="text-slate-400 text-sm mb-4 line-clamp-3">Mẫu tay đòn ứng dụng thuật toán Generative Design giúp giảm 45% trọng lượng nhưng vẫn giữ nguyên khả năng chịu tải tĩnh. Phù hợp cho Drone hoặc Robot.</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded"><i class="fa-solid fa-layer-group mr-1"></i>Lattice Structure</span>
+                                <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded"><i class="fa-solid fa-fire-flame-curved mr-1"></i>PA-Carbon Fiber</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-800">
+                            <div>
+                                <div class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Chế tạo theo yêu cầu</div>
+                                <div class="text-2xl font-black text-white">1.250.000<span class="text-sm font-bold text-slate-400">đ</span></div>
+                            </div>
+                            <a href="https://zalo.me/0704141237?text=Ch%C3%A0o%20Giahaoone%2C%20t%C3%B4i%20mu%E1%BB%91n%20t%C6%B0%20v%E1%BA%A5n%20ch%E1%BA%BF%20t%E1%BA%A1o%20chi%20ti%E1%BA%BFt%20c%C6%A1%20kh%C3%AD%20Generative%20Design." target="_blank" class="w-12 h-12 rounded-full bg-brand-600 hover:bg-brand-500 text-white flex items-center justify-center transition-all shadow-lg hover:shadow-brand-500/50 relative z-20">
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sản phẩm 3: Linh kiện In-place / Tooling -->
+                <div class="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl hover:border-emerald-500/50 transition-all group flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                    <!-- KHU VỰC HIỂN THỊ FILE 3D (.GLB) -->
+                    <div class="relative h-60 bg-gradient-to-tr from-slate-900 to-slate-800 overflow-hidden p-0">
+                        <div class="absolute top-4 left-4 z-10 flex gap-2 pointer-events-none">
+                            <span class="px-2 py-1 bg-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase rounded border border-emerald-500/30">Functional</span>
+                        </div>
+                        
+                        <!-- Thẻ Model Viewer -->
+                        <model-viewer 
+                            src="https://raw.githubusercontent.com/giahao99vn/giahaoone/refs/heads/main/TEN_FILE_HOP_SO.glb" 
+                            alt="Mô hình 3D Cụm Cơ Cấu Print-in-Place"
+                            shadow-intensity="1" 
+                            camera-controls 
+                            auto-rotate 
+                            rotation-per-second="-30deg"
+                            interaction-prompt="hover"
+                            class="w-full h-full bg-transparent outline-none cursor-grab active:cursor-grabbing">
+                        </model-viewer>
+                    </div>
+
+                    <div class="p-6 flex-grow flex flex-col justify-between pointer-events-auto">
+                        <div>
+                            <h3 class="text-xl font-black text-white mb-2 group-hover:text-emerald-400 transition-colors">Cụm Cơ Cấu Print-in-Place</h3>
+                            <p class="text-slate-400 text-sm mb-4 line-clamp-3">Bộ hộp số mini hoặc cụm bản lề khớp nối được in 3D nguyên khối (không cần lắp ráp sau in). Căn chỉnh dung sai siêu nhỏ dưới 0.15mm.</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded"><i class="fa-solid fa-compress mr-1"></i>Dung sai ±0.1mm</span>
+                                <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded"><i class="fa-solid fa-shield mr-1"></i>Nhựa ABS/ASA</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-800">
+                            <div>
+                                <div class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Sản xuất linh hoạt</div>
+                                <div class="text-2xl font-black text-white">Từ 450.000<span class="text-sm font-bold text-slate-400">đ</span></div>
+                            </div>
+                            <a href="https://zalo.me/0704141237?text=Ch%C3%A0o%20Giahaoone%2C%20t%C3%B4i%20c%E1%BA%A7n%20%C4%91%E1%BA%B7t%20in%203D%20c%C3%A1c%20c%E1%BB%A5m%20c%C6%A1%20c%E1%BA%A5u%20l%E1%BA%AFp%20gh%C3%A9p%20ch%C3%ADnh%20x%C3%A1c." target="_blank" class="w-12 h-12 rounded-full bg-brand-600 hover:bg-brand-500 text-white flex items-center justify-center transition-all shadow-lg hover:shadow-brand-500/50 relative z-20">
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- KẾT THÚC: TRUNG TÂM SÁNG TẠO -->
+
     <section id="calculator" class="py-24 bg-white/80 backdrop-blur-sm border-b border-slate-200">
         <div class="container mx-auto px-6">
             <div class="max-w-5xl mx-auto">
