@@ -1,3 +1,249 @@
+// Khởi tạo AOS
+AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 120,
+    easing: 'ease-in-out'
+});
+
+// --- HỆ THỐNG THÔNG BÁO GIAO DIỆN MƯỢT MÀ (TOAST NOTIFICATION) ---
+window.showToast = function(message, type = 'info') {
+    const toast = document.createElement('div');
+    let icon = '<i class="fa-solid fa-circle-info text-blue-400"></i>';
+    let bgClass = 'bg-slate-800 border-slate-700';
+
+    if(type === 'success') {
+        icon = '<i class="fa-solid fa-circle-check text-emerald-400 animate-pulse"></i>';
+        bgClass = 'bg-slate-900 border-emerald-500/50 shadow-emerald-500/20';
+    } else if(type === 'error' || type === 'warning') {
+        icon = '<i class="fa-solid fa-triangle-exclamation text-amber-500 animate-bounce"></i>';
+        bgClass = 'bg-slate-900 border-amber-500/50 shadow-amber-500/20';
+    }
+
+    toast.className = `flex items-center gap-3 px-4 py-3 rounded-xl border shadow-xl text-white text-sm font-medium transform transition-all duration-500 translate-x-full opacity-0 ${bgClass}`;
+    toast.innerHTML = `<div class="text-lg">${icon}</div> <div>${message}</div>`;
+
+    const container = document.getElementById('toast-container');
+    if(container) container.appendChild(toast);
+
+    setTimeout(() => { toast.classList.remove('translate-x-full', 'opacity-0'); }, 10);
+    setTimeout(() => {
+        toast.classList.add('translate-x-full', 'opacity-0');
+        setTimeout(() => toast.remove(), 500);
+    }, 3000);
+}
+
+// --- 1. SETUP AUDIO ---
+const bgMusic = document.getElementById('bgMusic');
+const audioBtn = document.getElementById('audio-btn');
+bgMusic.volume = 0.5;
+
+audioBtn.addEventListener('click', () => {
+    if (bgMusic.paused) {
+        bgMusic.play().then(() => {
+            audioBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+            audioBtn.classList.add('animate-pulse', 'text-viet-gold', 'shadow-[0_0_20px_rgba(212,175,55,0.6)]');
+        }).catch(e => showToast("Trình duyệt chặn phát nhạc tự động. Vui lòng tương tác với trang web trước.", "warning"));
+    } else {
+        bgMusic.pause();
+        audioBtn.innerHTML = '<i class="fa-solid fa-music"></i>';
+        audioBtn.classList.remove('animate-pulse', 'text-viet-gold', 'shadow-[0_0_20px_rgba(212,175,55,0.6)]');
+    }
+});
+
+// --- 2. LOGIC GAME TRÍ NHỚ ---
+const gameModal = document.getElementById('game-modal');
+const gameBoard = document.getElementById('game-board');
+const winMessage = document.getElementById('win-message');
+const cardIcons = [
+    { icon: '<i class="fa-solid fa-cube text-brand-500"></i>', name: 'In 3D' },
+    { icon: '<i class="fa-solid fa-gear text-slate-600"></i>', name: 'Hộp Giảm Tốc' },
+    { icon: '<i class="fa-solid fa-sort-up text-emerald-500"></i>', name: 'Nón Lá' },
+    { icon: '<i class="fa-solid fa-leaf text-green-600"></i>', name: 'Bánh Tét' },
+    { icon: '<i class="fa-solid fa-coffee text-amber-600"></i>', name: 'Cà Phê' },
+    { icon: '<i class="fa-solid fa-pen-ruler text-blue-600"></i>', name: 'Thiết kế Creo' }
+];
+
+let cards = [...cardIcons, ...cardIcons];
+let hasFlippedCard = false, lockBoard = false;
+let firstCard, secondCard, matchCount = 0;
+
+function shuffle() { cards.sort(() => Math.random() - 0.5); }
+
+function createBoard() {
+    gameBoard.innerHTML = ''; shuffle();
+    cards.forEach((item) => {
+        const card = document.createElement('div');
+        card.classList.add('memory-card');
+        card.dataset.name = item.name;
+        card.innerHTML = `<div class="front-face shadow-lg border border-brand-400"><i class="fa-solid fa-question text-white/50"></i></div>
+                          <div class="back-face shadow-lg"><div class="text-3xl mb-1">${item.icon}</div><div class="text-[10px] font-bold text-slate-600 uppercase tracking-tighter">${item.name}</div></div>`;
+        card.addEventListener('click', flipCard);
+        gameBoard.appendChild(card);
+    });
+    matchCount = 0; winMessage.classList.add('hidden');
+}
+
+function flipCard() {
+    if (lockBoard || this === firstCard) return;
+    this.classList.add('flip');
+    if (!hasFlippedCard) { hasFlippedCard = true; firstCard = this; return; }
+    secondCard = this; checkForMatch();
+}
+
+function checkForMatch() { firstCard.dataset.name === secondCard.dataset.name ? disableCards() : unflipCards(); }
+
+function disableCards() {
+    firstCard.removeEventListener('click', flipCard); secondCard.removeEventListener('click', flipCard);
+    matchCount++;
+    if (matchCount === cardIcons.length) setTimeout(() => winMessage.classList.remove('hidden'), 500);
+    resetBoard();
+}
+
+function unflipCards() {
+    lockBoard = true;
+    setTimeout(() => { firstCard.classList.remove('flip'); secondCard.classList.remove('flip'); resetBoard(); }, 800);
+}
+
+function resetBoard() { [hasFlippedCard, lockBoard] = [false, false]; [firstCard, secondCard] = [null, null]; }
+function openGame() { createBoard(); gameModal.classList.remove('hidden'); setTimeout(() => gameModal.classList.remove('opacity-0'), 10); }
+function closeGame() { gameModal.classList.add('opacity-0'); setTimeout(() => gameModal.classList.add('hidden'), 300); }
+
+// --- 3. BẢNG TÍNH GIÁ NHANH THEO GRAM ---
+const pricingManual = { 
+    petg: { under: 1000, over: 600 }, 
+    pla: { under: 1100, over: 700 }, 
+    abs: { under: 1200, over: 800 },
+    carbon: { under: 2000, over: 1500 },
+    tpu: { under: 1500, over: 1200 },
+    pps: { under: 4000, over: 3500 }
+};
+const MIN_PRICE = 20000;
+const CTV_PASSWORD = "CREO-GIAHAOONE"; 
+
+const materialInputManual = document.getElementById('calc-material');
+const weightInputManual = document.getElementById('calc-weight');
+const passwordInputManual = document.getElementById('calc-password');
+const rateInfoManual = document.getElementById('calc-rate-info');
+const resSubtotal = document.getElementById('res-subtotal');
+const resDiscount = document.getElementById('res-discount');
+const resTotal = document.getElementById('res-total');
+const ctvRow = document.getElementById('ctv-row');
+const resCtv = document.getElementById('res-ctv');
+const minPriceWarning = document.getElementById('min-price-warning');
+const btnZaloManual = document.getElementById('btn-zalo-manual');
+
+function setMaterialManual(mat) {
+    materialInputManual.value = mat;
+    document.querySelectorAll('.mat-btn').forEach(btn => btn.classList.remove('active-material', 'border-brand-500', 'bg-brand-50/50', 'border-red-500', 'bg-red-50/50'));
+    
+    const activeBtn = document.getElementById('btn-' + mat);
+    if (mat === 'pps') {
+        activeBtn.classList.add('border-red-500', 'bg-red-50/50');
+    } else {
+        activeBtn.classList.add('active-material', 'border-brand-500', 'bg-brand-50/50');
+    }
+    
+    calculateManualPrice();
+}
+
+function formatVND(amount) { return new Intl.NumberFormat('vi-VN').format(Math.round(amount)) + 'đ'; }
+
+function calculateManualPrice() {
+    const mat = materialInputManual.value;
+    const weight = parseFloat(weightInputManual.value) || 0;
+    const pass = passwordInputManual.value;
+    
+    if (weight <= 0) { 
+        rateInfoManual.innerText = "Hệ thống đang chờ dữ liệu để nội suy chi phí..."; 
+        rateInfoManual.className = "mt-4 text-sm font-medium text-slate-400 italic";
+        resSubtotal.innerText = '0đ'; resDiscount.innerText = '-0đ'; resTotal.innerText = '0đ'; 
+        ctvRow.classList.add('hidden'); minPriceWarning.classList.add('hidden'); return; 
+    }
+
+    let rate = weight >= 400 ? pricingManual[mat].over : pricingManual[mat].under;
+    rateInfoManual.innerText = weight >= 400 ? `Ưu đãi in số lượng lớn: Đơn giá ${rate}đ/g` : `Mức giá chuẩn: Đơn giá ${rate}đ/g`;
+    
+    if (mat === 'pps') {
+        rateInfoManual.className = weight >= 400 ? "mt-4 text-sm font-black text-red-600" : "mt-4 text-sm font-bold text-red-500";
+    } else {
+        rateInfoManual.className = weight >= 400 ? "mt-4 text-sm font-black text-brand-600" : "mt-4 text-sm font-bold text-slate-600";
+    }
+
+    let subtotal = weight * rate; let discount = 0;
+    if (subtotal > 1500000) discount = subtotal * 0.1;
+    else if (subtotal > 1000000) discount = subtotal * 0.08;
+    else if (subtotal > 500000) discount = subtotal * 0.05;
+
+    let finalTotal = subtotal - discount;
+    if (finalTotal > 0 && finalTotal < MIN_PRICE) { finalTotal = MIN_PRICE; minPriceWarning.classList.remove('hidden'); } 
+    else { minPriceWarning.classList.add('hidden'); }
+
+    resSubtotal.innerText = formatVND(subtotal); resDiscount.innerText = '-' + formatVND(discount); resTotal.innerText = formatVND(finalTotal);
+    
+    if (pass.trim().toUpperCase() === CTV_PASSWORD) { 
+        ctvRow.classList.remove('hidden'); resCtv.innerText = formatVND(finalTotal * 0.95); 
+    } else { 
+        ctvRow.classList.add('hidden'); 
+    }
+}
+
+setMaterialManual('petg'); 
+weightInputManual.addEventListener('input', calculateManualPrice);
+passwordInputManual.addEventListener('input', calculateManualPrice);
+
+btnZaloManual.addEventListener('click', () => {
+    const weight = parseFloat(weightInputManual.value) || 0;
+    if(weight <= 0) {
+        showToast("Vui lòng nhập khối lượng dự kiến của sản phẩm!", "error");
+        return;
+    }
+    
+    const matCode = materialInputManual.value;
+    let matName = "PETG";
+    if(matCode === 'pla') matName = "PLA";
+    if(matCode === 'abs') matName = "ABS/ASA";
+    if(matCode === 'carbon') matName = "Carbon Fiber";
+    if(matCode === 'tpu') matName = "TPU (Dẻo)";
+    if(matCode === 'pps') matName = "PPS-CF (Siêu kỹ thuật)";
+
+    const custName = document.getElementById('manual-cust-name').value || "Chưa cung cấp";
+    const custPhone = document.getElementById('manual-cust-phone').value || "Chưa cung cấp";
+    const finalPriceText = resTotal.innerText;
+    
+    const originalBtnText = btnZaloManual.innerHTML;
+    btnZaloManual.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang xử lý...';
+    
+    const formData = new URLSearchParams();
+    formData.append('name', custName);
+    formData.append('phone', custPhone);
+    formData.append('material', matName);
+    formData.append('color', 'Tùy chọn (Báo giá thủ công)');
+    formData.append('dims', 'Báo giá nhanh (Gram)');
+    formData.append('weight', weight + "g");
+    formData.append('config', `Thủ công`);
+    formData.append('price', finalPriceText);
+
+    const GOOGLE_APP_URL = "https://script.google.com/macros/s/AKfycbzTq4LssG-Ox4pJwg6ek0fUSpKPSwcYw7SoO5D-z3r75_rw2bRJAcAadkv6kpHyojIp/exec"; 
+    
+    const zaloMessage = `[ĐẶT IN 3D WEB - THỦ CÔNG]\nChào Giahaoone, tôi muốn in đơn hàng với thông số sau:\n- Vật liệu: ${matName}\n- Khối lượng dự kiến: ${weight}g\n- Báo giá dự kiến: ${finalPriceText}\n(Tôi sẽ gửi kèm file hoặc bản vẽ ngay sau tin nhắn này!)`;
+
+    fetch(GOOGLE_APP_URL, {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        btnZaloManual.innerHTML = originalBtnText;
+        window.open(`https://zalo.me/0704141237?text=${encodeURIComponent(zaloMessage)}`, '_blank');
+    })
+    .catch(error => {
+        console.error('Lỗi lưu sheet:', error);
+        btnZaloManual.innerHTML = originalBtnText;
+        window.open(`https://zalo.me/0704141237?text=${encodeURIComponent(zaloMessage)}`, '_blank');
+    });
+});
+
 // --- 4. HỆ THỐNG PHÂN TÍCH 3D TỰ ĐỘNG BÁO GIÁ ĐA LUỒNG ---
 const fileInput = document.getElementById('file-input');
 const viewerContainer = document.getElementById('viewer-container');
@@ -326,3 +572,40 @@ window.loadDemoModel = function(type) {
 };
 
 resetViewerBtn.addEventListener('click', () => { cart3D = []; renderCart(); showToast("Đã dọn dẹp sạch khu vực phân tích."); });
+
+
+// --- 6. SCROLL TO TOP NÚT NỔI ---
+const backToTopBtn = document.getElementById('backToTopBtn');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) { 
+        backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4'); 
+    } else { 
+        backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4'); 
+    }
+});
+function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+// ==========================================
+
+// ==========================================
+// 8. HỆ THỐNG GIAO DIỆN SÁNG/TỐI (DARK/LIGHT MODE)
+// ==========================================
+const themeToggleBtn = document.getElementById('theme-toggle-btn');
+
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('global-dark');
+    themeToggleBtn.classList.add('theme-is-dark');
+}
+
+themeToggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('global-dark');
+    themeToggleBtn.classList.toggle('theme-is-dark');
+    
+    if (document.body.classList.contains('global-dark')) {
+        localStorage.setItem('theme', 'dark');
+        showToast("Đã chuyển sang chế độ Giao diện Tối", "success");
+    } else {
+        localStorage.setItem('theme', 'light');
+        showToast("Đã chuyển sang chế độ Giao diện Sáng", "info");
+    }
+});
