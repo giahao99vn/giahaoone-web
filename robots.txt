@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemaps for Gia Hào One (giahaoone.com & giahao.vn)
+Sitemap: https://giahaoone.com/sitemap.xml

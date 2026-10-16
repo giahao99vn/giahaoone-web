@@ -1,28 +1,28 @@
 # Gia Hào One — Website Giới Thiệu Sản Phẩm In 3D & Phay CNC (`giahaoone.com` • `giahao.vn`)
 
-Trang web chính thức của thương hiệu **Gia Hào One**, được thiết kế theo ngôn ngữ tối giản, hiện đại và sang trọng của **Apple Store & Google Hardware**, chuyên trưng bày các dòng sản phẩm chế tác từ máy in 3D **QIDI Max 4**, **Snapmaker U1** và **Máy Phay CNC 3 Trục**.
+Trang web chính thức của thương hiệu **Gia Hào One**, được thiết kế theo ngôn ngữ tối giản của **Apple Store & Google Hardware**, tích hợp hiệu ứng tương tác chuột **`antigravity.google`**, hỗ trợ **Đa ngôn ngữ (`VI | EN`)** và được **Tối ưu SEO toàn diện** cho Google Search.
 
 ---
 
-## 1. Điểm nổi bật của giao diện mới (Phong cách Apple & Google)
-- **Thanh điều hướng kính mờ (Frosted Glass Navigation)**: Hiệu ứng mờ trong suốt chuẩn macOS / Apple.com.
-- **Tông màu Sáng tinh tế (Alabaster Light Mode) & Đen không gian (Space Black Dark Mode)**: Mặc định mở ở chế độ Sáng thanh lịch như Apple Store, có nút chuyển sang chế độ Tối ngay trên góc phải.
-- **Bố cục Bento Grid**: Trình bày công nghệ chế tạo sản phẩm (**QIDI Max 4**, **Snapmaker U1**, **Phay CNC 3 Trục**) theo đúng phong cách giới thiệu phần cứng của Apple.
-- **Thẻ sản phẩm Studio & Bộ lọc dạng viên thuốc (Segmented Pill Control)**: Bo góc mềm mại (`28px`), đổ bóng khuếch tán nhẹ nhàng, hiệu ứng nổi mượt mà khi di chuột.
-- **Hiển thị song song 2 tên miền chính thức**: `giahaoone.com` và `giahao.vn`.
+## 1. Danh sách đầy đủ các file cần tải lên GitHub Pages
+Khi tải lên Repository trên GitHub, bạn kéo thả toàn bộ các file sau:
+- `index.html`: Giao diện chính kèm dữ liệu cấu trúc **Schema.org JSON-LD** (`Organization`, `LocalBusiness`, `Product`, `FAQPage`), thẻ **Open Graph** (Zalo/Facebook preview), thẻ **Hreflang** (`vi` / `en`) và **HTML tĩnh dựng sẵn** cho bộ máy tìm kiếm.
+- `styles.css`: Hệ thống giao diện Apple/Google (Sáng & Tối), hiệu ứng Spotlight và tối ưu cho mọi cỡ màn hình điện thoại.
+- `script.js`: Dữ liệu sản phẩm, bộ chuyển đổi ngôn ngữ `VI / EN` và hiệu ứng hạt không trọng lực `antigravity.google`.
+- `CNAME`: Cấu hình tên miền chính `giahaoone.com` cho GitHub Pages.
+- `robots.txt`: Chỉ dẫn cho bọ tìm kiếm (Googlebot, Bingbot, Cốc Cốc) quét toàn bộ trang web.
+- `sitemap.xml`: Sơ đồ trang web chuẩn quốc tế (kèm liên kết đa ngôn ngữ Tiếng Việt & Tiếng Anh).
+- `favicon.svg`: Biểu tượng thương hiệu **Gia Hào One** hiển thị trên tab trình duyệt và kết quả tìm kiếm Google.
+- `site.webmanifest`: Hồ sơ nhận diện ứng dụng web trên thiết bị di động.
 
 ---
 
-## 2. Thông tin thương hiệu đã tích hợp
-- **Tên thương hiệu:** **Gia Hào One**
-- **Hệ thống tên miền:** `giahaoone.com` & `giahao.vn`
-- **Thiết bị chế tạo sản phẩm:** Máy in 3D **QIDI Max 4**, **Snapmaker U1** & **Máy Phay CNC 3 Trục**
-- **Số điện thoại / Zalo:** `0704.141.237` (`https://zalo.me/0704141237`)
-- **Địa chỉ:** Ấp An Trung, Xã Định An, Huyện Gò Quao, Tỉnh Kiên Giang
+## 2. Cách đưa trang web lên Top Google nhanh nhất (Google Search Console)
+Sau khi bạn đã đẩy các file lên GitHub Pages và tên miền **`giahaoone.com`** đã hoạt động:
+1. Truy cập [Google Search Console](https://search.google.com/search-console).
+2. Nhập tên miền `https://giahaoone.com` vào ô **URL Prefix (Tiền tố URL)** (hoặc chọn **Domain** nếu xác minh qua DNS).
+3. Ở menu bên trái của Google Search Console:
+   - Bấm vào mục **Sitemaps (Sơ đồ trang web)** $\rightarrow$ nhập `sitemap.xml` $\rightarrow$ bấm **Submit (Gửi)**.
+   - Bấm vào mục **URL Inspection (Kiểm tra URL)** $\rightarrow$ dán `https://giahaoone.com/` $\rightarrow$ bấm **Request Indexing (Yêu cầu lập chỉ mục)**.
 
----
-
-## 3. Cách sử dụng đồng thời 2 tên miền `giahaoone.com` và `giahao.vn` trên GitHub Pages
-GitHub Pages cho phép đặt 1 tên miền chính trong file `CNAME` (hiện đang để `giahaoone.com`):
-1. **Tên miền chính (`giahaoone.com`)**: Trỏ bản ghi DNS `A` về 4 địa chỉ IP của GitHub Pages (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`).
-2. **Tên miền thứ hai (`giahao.vn`)**: Trong trang quản trị tên miền `giahao.vn` (hoặc Cloudflare), bật tính năng **URL Redirect / Chuyển hướng 301** từ `giahao.vn` sang `https://giahaoone.com` (hoặc ngược lại nếu bạn muốn `giahao.vn` làm tên miền chính thì chỉ cần sửa nội dung file `CNAME` thành `giahao.vn`). Khi đó khách gõ tên miền nào cũng sẽ vào thẳng trang web của bạn!
+Chỉ sau 24–48 giờ, Google sẽ thu thập đầy đủ tên thương hiệu **Gia Hào One**, địa chỉ tại **Gò Quao, Kiên Giang**, số Zalo **`0704.141.237`** và cả 6 dòng sản phẩm **QIDI Max 4, Snapmaker U1, Phay CNC 3 Trục** lên kết quả tìm kiếm!

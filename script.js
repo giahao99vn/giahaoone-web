@@ -530,9 +530,13 @@ const MATERIALS_DATA = {
 };
 
 /**
- * TRẠNG THÁI HIỆN TẠI
+ * TRẠNG THÁI HIỆN TẠI (Hỗ trợ tham số ?lang=en cho Googlebot / Hreflang SEO)
  */
-let currentLang = localStorage.getItem("giahaoone_lang") || "vi";
+const urlLangParam = new URLSearchParams(window.location.search).get("lang");
+let currentLang =
+  urlLangParam === "en" || urlLangParam === "vi"
+    ? urlLangParam
+    : localStorage.getItem("giahaoone_lang") || "vi";
 let currentCategory = "all";
 let currentSearch = "";
 let currentMaterialTab = "3d";
