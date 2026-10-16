@@ -24,6 +24,7 @@ const I18N_DICT = {
     nav_products: "Sản phẩm",
     nav_craft: "Công nghệ chế tác",
     nav_materials: "Chất liệu",
+    nav_faq: "Hỏi đáp",
     nav_contact: "Liên hệ",
     hero_eyebrow: "Gia Hào One • giahaoone.com & giahao.vn",
     hero_title_1: "Thiết kế chuẩn mực.",
@@ -32,6 +33,15 @@ const I18N_DICT = {
       "Khám phá các dòng sản phẩm cơ khí và phụ kiện công nghệ của <strong>Gia Hào One</strong> — được hoàn thiện từ hệ thống máy in 3D <strong>QIDI Max 4</strong>, <strong>Snapmaker U1</strong> và <strong>Máy Phay CNC 3 Trục</strong>.",
     hero_cta_primary: "Khám phá bộ sưu tập",
     hero_cta_secondary: "Liên hệ Zalo 0704.141.237",
+    mode_studio: "Bề mặt Studio",
+    mode_wireframe: "Khung dây CAD",
+    mode_toolpath: "Lớp in & Đường dao CNC",
+    stage_drag_hint: "Chạm hoặc kéo để xoay góc nhìn 3D",
+    finish_blue: "Xanh Pro Titanium",
+    finish_carbon: "Đen Sợi Carbon (PA-CF)",
+    finish_silver: "Bạc Nhôm 6061 CNC",
+    finish_copper: "Vàng Đồng Nguyên Khối",
+    finish_teal: "Xanh Ngọc PETG Kỹ Thuật",
     stage_cap_1: "IN 3D KHỔ LỚN & CHỊU NHIỆT",
     stage_cap_2: "IN 3D ĐỘ CHÍNH XÁC CAO",
     stage_cap_3: "GIA CÔNG KIM LOẠI & NHỰA",
@@ -78,7 +88,14 @@ const I18N_DICT = {
     mat_eyebrow: "Chất liệu tuyển chọn",
     mat_title: "Vật liệu cấu thành sản phẩm.",
     mat_desc:
-      "Mỗi chất liệu được lựa chọn kỹ lưỡng để phát huy tối đa công năng, độ bền và vẻ đẹp hoàn thiện của sản phẩm.",
+      "Chạm vào từng đặc tính bên dưới để so sánh trực quan thông số cơ lý hoặc xem bảng tổng hợp chi tiết.",
+    adv_badge: "TƯƠNG TÁC SO SÁNH THÔNG SỐ",
+    adv_title: "Khám phá đặc tính kỹ thuật của từng nhóm vật liệu",
+    adv_btn_alu: "Nhôm 6061 (CNC 3 Trục)",
+    adv_btn_pom: "Nhựa POM / Đồng (CNC 3 Trục)",
+    meter_strength: "Độ cứng vững & Chịu lực",
+    meter_heat: "Khả năng chịu nhiệt & Thời tiết",
+    meter_finish: "Độ mịn & Tinh xảo bề mặt",
     mat_tab_3d: "Vật liệu sản phẩm In 3D (QIDI Max 4 & Snapmaker U1)",
     mat_tab_cnc: "Vật liệu sản phẩm Phay CNC 3 Trục",
     th_mat: "Chất liệu",
@@ -86,6 +103,17 @@ const I18N_DICT = {
     th_feat: "Đặc tính nổi bật",
     th_finish: "Hoàn thiện",
     th_app: "Ứng dụng trên sản phẩm",
+    faq_eyebrow: "Giải đáp thông tin",
+    faq_title: "Câu hỏi thường gặp về sản phẩm Gia Hào One.",
+    faq_q1: "Gia Hào One cung cấp những dòng sản phẩm chủ lực nào?",
+    faq_a1:
+      "Gia Hào One (giahaoone.com & giahao.vn) chuyên giới thiệu và cung cấp các dòng sản phẩm tự nghiên cứu, thiết kế và chế tạo hoàn thiện bằng máy in 3D QIDI Max 4, Snapmaker U1 và máy phay CNC 3 trục — bao gồm hộp kỹ thuật chịu nhiệt, giá đỡ nhựa sợi Carbon PA-CF, phụ kiện bàn làm việc thông minh và các chi tiết nhôm 6061, đồng, nhựa POM nguyên khối.",
+    faq_q2: "Sự khác biệt giữa sản phẩm in từ QIDI Max 4 và Snapmaker U1 là gì?",
+    faq_a2:
+      "Dòng sản phẩm từ máy QIDI Max 4 sử dụng buồng nhiệt chủ động để in các loại nhựa kỹ thuật chịu lực và chịu nhiệt cao (ABS, ASA, PA-CF sợi Carbon) với kích thước lớn. Trong khi đó, dòng sản phẩm từ Snapmaker U1 tập trung vào độ mịn bề mặt, đường nét tinh xảo và độ khít cao cho các phụ kiện sáng tạo và mô hình cơ khí.",
+    faq_q3: "Làm thế nào để liên hệ tư vấn hoặc đặt mua sản phẩm của Gia Hào One?",
+    faq_a3:
+      "Bạn có thể bấm trực tiếp vào sản phẩm quan tâm trên website giahaoone.com (hoặc giahao.vn) và nhắn tin qua Zalo 0704.141.237 để được tư vấn thông số kỹ thuật chi tiết và hỗ trợ giao hàng toàn quốc từ Gò Quao, Kiên Giang.",
     contact_eyebrow: "Kết nối trực tiếp",
     contact_title: "Liên hệ với Gia Hào One.",
     contact_lead:
@@ -131,6 +159,7 @@ const I18N_DICT = {
     nav_products: "Products",
     nav_craft: "Craftsmanship",
     nav_materials: "Materials",
+    nav_faq: "FAQ",
     nav_contact: "Contact",
     hero_eyebrow: "Gia Hào One • giahaoone.com & giahao.vn",
     hero_title_1: "Engineered to perfection.",
@@ -139,6 +168,15 @@ const I18N_DICT = {
       "Explore signature mechanical products and tech accessories by <strong>Gia Hào One</strong> — crafted in-house using <strong>QIDI Max 4</strong>, <strong>Snapmaker U1</strong> 3D printers and <strong>3-Axis CNC Milling</strong>.",
     hero_cta_primary: "Explore Collection",
     hero_cta_secondary: "Connect on Zalo 0704.141.237",
+    mode_studio: "Studio Surface",
+    mode_wireframe: "CAD Wireframe",
+    mode_toolpath: "Slicer & CNC Toolpath",
+    stage_drag_hint: "Touch or drag to rotate 3D view",
+    finish_blue: "Pro Titanium Blue",
+    finish_carbon: "Carbon Fiber Black (PA-CF)",
+    finish_silver: "6061 Aluminum Silver",
+    finish_copper: "Solid Copper Gold",
+    finish_teal: "Emerald Engineering PETG",
     stage_cap_1: "HIGH-TEMP LARGE FORMAT 3D",
     stage_cap_2: "HIGH-PRECISION 3D PRINTING",
     stage_cap_3: "METAL & ENGINEERING PLASTICS",
@@ -185,7 +223,14 @@ const I18N_DICT = {
     mat_eyebrow: "Curated Materials",
     mat_title: "Materials behind our products.",
     mat_desc:
-      "Every material is carefully selected to maximize structural durability, functionality, and refined aesthetics.",
+      "Tap on any material profile below to interactively compare mechanical properties or browse the full specification sheet.",
+    adv_badge: "INTERACTIVE SPEC COMPARISON",
+    adv_title: "Explore the technical profile of each material family",
+    adv_btn_alu: "Aluminum 6061 (3-Axis CNC)",
+    adv_btn_pom: "POM / Copper (3-Axis CNC)",
+    meter_strength: "Structural Rigidity & Load",
+    meter_heat: "Thermal & Weather Resistance",
+    meter_finish: "Surface Smoothness & Detail",
     mat_tab_3d: "3D Printing Materials (QIDI Max 4 & Snapmaker U1)",
     mat_tab_cnc: "3-Axis CNC Milling Materials",
     th_mat: "Material",
@@ -193,6 +238,17 @@ const I18N_DICT = {
     th_feat: "Key Characteristics",
     th_finish: "Finish Quality",
     th_app: "Product Applications",
+    faq_eyebrow: "Questions & Answers",
+    faq_title: "Frequently Asked Questions about Gia Hào One.",
+    faq_q1: "What are the signature product lines of Gia Hào One?",
+    faq_a1:
+      "Gia Hào One (giahaoone.com & giahao.vn) designs and crafts proprietary products using QIDI Max 4, Snapmaker U1 3D printers, and 3-Axis CNC Milling — including heat-resistant enclosures, PA-CF carbon-fiber mounts, smart desk accessories, and solid 6061 aluminum, copper, and POM mechanical components.",
+    faq_q2: "How do QIDI Max 4 products differ from Snapmaker U1 products?",
+    faq_a2:
+      "Products crafted on the QIDI Max 4 utilize an actively heated chamber for large-scale, high-strength, and heat-resistant polymers (ABS, ASA, PA-CF Carbon Fiber). Products from the Snapmaker U1 focus on ultra-clean surface aesthetics, fine geometric contours, and precision snap-fit tolerances.",
+    faq_q3: "How can I inquire about or order Gia Hào One products?",
+    faq_a3:
+      "Simply click on any product on giahaoone.com (or giahao.vn) and message us via Zalo at 0704.141.237 for detailed specifications and nationwide delivery from Go Quao, Kien Giang.",
     contact_eyebrow: "Direct Connection",
     contact_title: "Get in touch with Gia Hào One.",
     contact_lead:
@@ -232,6 +288,123 @@ const I18N_DICT = {
     feedback_copied: "Inquiry message copied to clipboard!",
     feedback_guide: "Click the button below to open Zalo and paste (Ctrl+V) your message.",
     feedback_open_zalo: "Open Zalo"
+  }
+};
+
+/**
+ * DỮ LIỆU BỘ SO SÁNH VẬT LIỆU TƯƠNG TÁC (MATERIAL ADVISOR PROFILES)
+ */
+const ADVISOR_PROFILES = {
+  pacf: {
+    strength: 95,
+    heat: 92,
+    finish: 88,
+    vi: {
+      machine: "QIDI Max 4 • Nhựa Composite Sợi Carbon",
+      name: "Nhựa Sợi Carbon PA-CF / PETG-CF",
+      desc: "Kết hợp sợi Carbon siêu nhẹ và nền nhựa kỹ thuật chịu nhiệt, mang lại độ cứng cơ học vượt trội và bề mặt nhám mờ sang trọng cho giá đỡ, ngàm kẹp và khung chịu tải."
+    },
+    en: {
+      machine: "QIDI Max 4 • Carbon Fiber Composite",
+      name: "PA-CF / PETG-CF Carbon Fiber Polymer",
+      desc: "Combines lightweight chopped carbon fibers with high-temp engineering polymers for exceptional stiffness and a matte carbon finish on mounts and structural frames."
+    }
+  },
+  abs: {
+    strength: 88,
+    heat: 94,
+    finish: 85,
+    vi: {
+      machine: "QIDI Max 4 • Buồng Nhiệt Chủ Động",
+      name: "Nhựa Kỹ Thuật ABS / ASA Chịu Nhiệt",
+      desc: "Chịu nhiệt độ môi trường cao, chống tia UV và nắng mưa ngoài trời (ASA), cực kỳ bền bỉ cho các dòng vỏ hộp thiết bị điện tử và phụ kiện kỹ thuật khổ lớn."
+    },
+    en: {
+      machine: "QIDI Max 4 • Active Heated Chamber",
+      name: "Heat & UV-Resistant ABS / ASA",
+      desc: "High thermal deflection temperature and outdoor UV durability (ASA), ideal for large-format electronics enclosures and rugged industrial housings."
+    }
+  },
+  pla: {
+    strength: 80,
+    heat: 74,
+    finish: 97,
+    vi: {
+      machine: "Snapmaker U1 • Độ Chính Xác Cao",
+      name: "Nhựa PLA+ Cao Cấp & PETG Thẩm Mỹ",
+      desc: "Đường nét sắc sảo, bề mặt láng mịn và độ chuẩn xác lắp ghép cực cao, lý tưởng cho các dòng phụ kiện bàn làm việc thông minh, khay tổ chức và mô hình cơ khí."
+    },
+    en: {
+      machine: "Snapmaker U1 • High-Precision Motion",
+      name: "Aesthetic PLA+ & Durable PETG",
+      desc: "Ultra-crisp geometric contours, smooth layer lines, and tight snap-fit tolerances for smart desk accessories, modular organizers, and kinetic models."
+    }
+  },
+  alu: {
+    strength: 99,
+    heat: 99,
+    finish: 96,
+    vi: {
+      machine: "Máy Phay CNC 3 Trục • Kim Loại Nguyên Khối",
+      name: "Nhôm Hợp Kim 6061 Phay Unibody",
+      desc: "Phay trực tiếp từ nhôm tấm 6061 nguyên khối, mang lại kết cấu đầm chắc tuyệt đối, tản nhiệt nhanh, chống gỉ sét và vẻ đẹp kim loại cao cấp chuẩn phần cứng flagship."
+    },
+    en: {
+      machine: "3-Axis CNC Mill • Solid Billet Metal",
+      name: "Unibody 6061 Aluminum Alloy",
+      desc: "Milled directly from solid 6061 billet aluminum for uncompromising structural rigidity, rapid heat dissipation, and a flagship metallic finish."
+    }
+  },
+  pom: {
+    strength: 91,
+    heat: 90,
+    finish: 95,
+    vi: {
+      machine: "Máy Phay CNC 3 Trục • Cơ Khí Chính Xác",
+      name: "Nhựa Kỹ Thuật POM (Delrin) & Đồng",
+      desc: "Nhựa POM có hệ số ma sát cực thấp, tự bôi trơn và chống mài mòn cho bánh răng/con lăn; kết hợp cùng Đồng nguyên khối dẫn nhiệt và tạo điểm nhấn sang trọng."
+    },
+    en: {
+      machine: "3-Axis CNC Mill • Precision Machining",
+      name: "POM (Delrin) Engineering Plastic & Copper",
+      desc: "Low-friction, self-lubricating POM for precision gears and rollers, paired with high-conductivity solid Copper for thermal bases and luxury accents."
+    }
+  }
+};
+
+/**
+ * CẤU HÌNH MÀU SẮC STUDIO FINISH SWATCHES
+ */
+const STUDIO_FINISHES = {
+  blue: {
+    primary: "#0071e3",
+    secondary: "#5e5ce6",
+    tertiary: "#00c7be",
+    labelKey: "finish_blue"
+  },
+  carbon: {
+    primary: "#3a3a3c",
+    secondary: "#636366",
+    tertiary: "#0071e3",
+    labelKey: "finish_carbon"
+  },
+  silver: {
+    primary: "#6e6e73",
+    secondary: "#8e8e93",
+    tertiary: "#0071e3",
+    labelKey: "finish_silver"
+  },
+  copper: {
+    primary: "#d97706",
+    secondary: "#b45309",
+    tertiary: "#f59e0b",
+    labelKey: "finish_copper"
+  },
+  teal: {
+    primary: "#00a39b",
+    secondary: "#0d9488",
+    tertiary: "#0071e3",
+    labelKey: "finish_teal"
   }
 };
 
@@ -540,6 +713,8 @@ let currentLang =
 let currentCategory = "all";
 let currentSearch = "";
 let currentMaterialTab = "3d";
+let currentAdvisorProfile = "pacf";
+let currentStudioFinish = "blue";
 
 /**
  * HÀM TẠO HÌNH MINH HỌA STUDIO CHO TỪNG SẢN PHẨM
@@ -621,6 +796,56 @@ function getProductVisualHTML(product) {
 }
 
 /**
+ * CẬP NHẬT BỘ SO SÁNH VẬT LIỆU TƯƠNG TÁC (MATERIAL ADVISOR)
+ */
+function renderAdvisorProfile(profileKey) {
+  currentAdvisorProfile = ADVISOR_PROFILES[profileKey] ? profileKey : "pacf";
+  const profile = ADVISOR_PROFILES[currentAdvisorProfile];
+  const loc = profile[currentLang] || profile.vi;
+
+  const machineEl = document.getElementById("adv-machine");
+  const nameEl = document.getElementById("adv-name");
+  const descEl = document.getElementById("adv-desc");
+  if (machineEl) machineEl.textContent = loc.machine;
+  if (nameEl) nameEl.textContent = loc.name;
+  if (descEl) descEl.textContent = loc.desc;
+
+  const valStrength = document.getElementById("val-strength");
+  const barStrength = document.getElementById("bar-strength");
+  const valHeat = document.getElementById("val-heat");
+  const barHeat = document.getElementById("bar-heat");
+  const valFinish = document.getElementById("val-finish");
+  const barFinish = document.getElementById("bar-finish");
+
+  if (valStrength) valStrength.textContent = `${profile.strength}%`;
+  if (barStrength) barStrength.style.width = `${profile.strength}%`;
+  if (valHeat) valHeat.textContent = `${profile.heat}%`;
+  if (barHeat) barHeat.style.width = `${profile.heat}%`;
+  if (valFinish) valFinish.textContent = `${profile.finish}%`;
+  if (barFinish) barFinish.style.width = `${profile.finish}%`;
+}
+
+/**
+ * ÁP DỤNG MÀU SẮC STUDIO FINISH SWATCHES
+ */
+function applyStudioFinish(finishKey) {
+  currentStudioFinish = STUDIO_FINISHES[finishKey] ? finishKey : "blue";
+  const cfg = STUDIO_FINISHES[currentStudioFinish];
+  const stageCard = document.getElementById("interactive-stage-card");
+  if (stageCard) {
+    stageCard.style.setProperty("--stage-primary", cfg.primary);
+    stageCard.style.setProperty("--stage-secondary", cfg.secondary);
+    stageCard.style.setProperty("--stage-tertiary", cfg.tertiary);
+  }
+
+  const dict = I18N_DICT[currentLang];
+  const labelEl = document.getElementById("swatch-active-name");
+  if (labelEl && dict[cfg.labelKey]) {
+    labelEl.textContent = dict[cfg.labelKey];
+  }
+}
+
+/**
  * ÁP DỤNG NGÔN NGỮ TOÀN TRANG (VI / EN)
  */
 function applyLanguage(lang) {
@@ -631,12 +856,10 @@ function applyLanguage(lang) {
   const dict = I18N_DICT[currentLang];
   document.title = dict.page_title;
 
-  // Cập nhật trạng thái nút chuyển ngôn ngữ
   document.querySelectorAll(".lang-btn").forEach(btn => {
     btn.classList.toggle("active", btn.getAttribute("data-lang") === currentLang);
   });
 
-  // Cập nhật các phần tử text thường
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
     if (dict[key] !== undefined) {
@@ -644,7 +867,6 @@ function applyLanguage(lang) {
     }
   });
 
-  // Cập nhật các phần tử chứa HTML (in đậm, xuống dòng)
   document.querySelectorAll("[data-i18n-html]").forEach(el => {
     const key = el.getAttribute("data-i18n-html");
     if (dict[key] !== undefined) {
@@ -652,7 +874,6 @@ function applyLanguage(lang) {
     }
   });
 
-  // Cập nhật placeholder cho input / textarea
   document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
     const key = el.getAttribute("data-i18n-placeholder");
     if (dict[key] !== undefined) {
@@ -660,7 +881,8 @@ function applyLanguage(lang) {
     }
   });
 
-  // Render lại danh sách sản phẩm và bảng vật liệu theo ngôn ngữ mới
+  applyStudioFinish(currentStudioFinish);
+  renderAdvisorProfile(currentAdvisorProfile);
   renderProducts();
   renderMaterialsTable(currentMaterialTab);
 }
@@ -882,12 +1104,72 @@ function renderMaterialsTable(tabKey) {
 }
 
 /**
+ * KHỞI TẠO TƯƠNG TÁC STUDIO 3D VIEWPORT (XOAY 3D, CHẾ ĐỘ XEM, ĐỔI MÀU)
+ */
+function initInteractiveStudioStage() {
+  const stageCard = document.getElementById("interactive-stage-card");
+  const viewport = document.getElementById("stage-viewport");
+  const wrapper = document.getElementById("stage-rotate-wrapper");
+  if (!stageCard || !viewport || !wrapper) return;
+
+  // 1. Chuyển đổi chế độ hiển thị: Studio / Wireframe / Toolpath
+  document.querySelectorAll(".mode-pill").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".mode-pill").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      const mode = btn.getAttribute("data-view-mode") || "studio";
+      stageCard.setAttribute("data-stage-mode", mode);
+    });
+  });
+
+  // 2. Chọn màu chất liệu hoàn thiện (Finish Swatches)
+  document.querySelectorAll(".swatch-dot").forEach(dot => {
+    dot.addEventListener("click", () => {
+      document.querySelectorAll(".swatch-dot").forEach(d => d.classList.remove("active"));
+      dot.classList.add("active");
+      applyStudioFinish(dot.getAttribute("data-finish"));
+    });
+  });
+
+  // 3. Kéo chuột hoặc Chạm vuốt trên iPad/Điện thoại để xoay góc nhìn 3D
+  let isDragging = false;
+  let startX = 0;
+  let startY = 0;
+  let rotX = 0;
+  let rotY = 0;
+
+  viewport.addEventListener("pointerdown", e => {
+    isDragging = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    wrapper.style.transition = "none";
+  });
+
+  window.addEventListener("pointermove", e => {
+    if (!isDragging) return;
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+    rotY = Math.max(-24, Math.min(24, dx * 0.14));
+    rotX = Math.max(-16, Math.min(16, -dy * 0.12));
+    wrapper.style.transform = `rotateX(${rotX.toFixed(1)}deg) rotateY(${rotY.toFixed(1)}deg) scale(1.02)`;
+  });
+
+  window.addEventListener("pointerup", () => {
+    if (!isDragging) return;
+    isDragging = false;
+    wrapper.style.transition = "transform 0.45s cubic-bezier(0.22, 1, 0.36, 1)";
+    wrapper.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+  });
+}
+
+/**
  * KHỞI TẠO SỰ KIỆN KHI TRANG TẢI XONG
  */
 document.addEventListener("DOMContentLoaded", () => {
   applySiteConfig();
   updateCategoryCounts();
   applyLanguage(currentLang);
+  initInteractiveStudioStage();
 
   if (window.lucide) {
     window.lucide.createIcons();
@@ -901,7 +1183,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Mặc định chế độ Sáng (Light Mode) chuẩn Apple Store, hỗ trợ chuyển sang Space Black (Dark Mode)
+  // Sự kiện chọn nhóm vật liệu tương tác (Material Advisor)
+  document.querySelectorAll(".adv-pill").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".adv-pill").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderAdvisorProfile(btn.getAttribute("data-mat-profile"));
+    });
+  });
+
+  // Sự kiện đóng/mở câu hỏi thường gặp (FAQ Accordion)
+  document.querySelectorAll(".faq-question").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const item = btn.closest(".faq-item");
+      if (!item) return;
+      const isOpen = item.classList.contains("open");
+      document.querySelectorAll(".faq-item").forEach(el => {
+        el.classList.remove("open");
+        const q = el.querySelector(".faq-question");
+        if (q) q.setAttribute("aria-expanded", "false");
+      });
+      if (!isOpen) {
+        item.classList.add("open");
+        btn.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+
+  // Chế độ Sáng (Light Mode) mặc định & Space Black (Dark Mode)
   const savedTheme = localStorage.getItem("giahaoone_apple_theme") || "light";
   document.documentElement.setAttribute("data-theme", savedTheme);
 
@@ -1031,18 +1340,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Khởi chạy hiệu ứng tương tác chuột kiểu antigravity.google
+  // Khởi chạy hiệu ứng tương tác chuột & cảm ứng kiểu antigravity.google
   initAntigravityEffects();
 });
 
 /**
  * ============================================================================
- * HIỆU ỨNG TƯƠNG TÁC CHUỘT KIỂU ANTIGRAVITY.GOOGLE
+ * HIỆU ỨNG TƯƠNG TÁC CHUỘT & CẢM ỨNG KIỂU ANTIGRAVITY.GOOGLE
  * ============================================================================
  */
 function bindInteractiveCards() {
   const cards = document.querySelectorAll(
-    ".product-card, .bento-card, .stage-card, .info-tile, .inquiry-card"
+    ".product-card, .bento-card, .stage-card, .info-tile, .inquiry-card, .material-advisor-card"
   );
 
   cards.forEach(card => {
@@ -1088,17 +1397,21 @@ function initAntigravityEffects() {
     observer.observe(productsGrid, { childList: true });
   }
 
-  document.querySelectorAll(".btn-pill").forEach(btn => {
-    btn.addEventListener("mousemove", e => {
-      const rect = btn.getBoundingClientRect();
-      const dx = e.clientX - (rect.left + rect.width / 2);
-      const dy = e.clientY - (rect.top + rect.height / 2);
-      btn.style.transform = `translate(${(dx * 0.16).toFixed(1)}px, ${(dy * 0.16).toFixed(1)}px) scale(1.02)`;
+  const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+
+  if (!isTouchDevice) {
+    document.querySelectorAll(".btn-pill").forEach(btn => {
+      btn.addEventListener("mousemove", e => {
+        const rect = btn.getBoundingClientRect();
+        const dx = e.clientX - (rect.left + rect.width / 2);
+        const dy = e.clientY - (rect.top + rect.height / 2);
+        btn.style.transform = `translate(${(dx * 0.16).toFixed(1)}px, ${(dy * 0.16).toFixed(1)}px) scale(1.02)`;
+      });
+      btn.addEventListener("mouseleave", () => {
+        btn.style.transform = "";
+      });
     });
-    btn.addEventListener("mouseleave", () => {
-      btn.style.transform = "";
-    });
-  });
+  }
 
   const canvas = document.getElementById("antigravity-canvas");
   const aura = document.getElementById("cursor-aura");
@@ -1123,7 +1436,7 @@ function initAntigravityEffects() {
   };
   const auraPos = { x: width / 2, y: height / 2 };
 
-  const particleCount = Math.min(75, Math.floor((width * height) / 18000));
+  const particleCount = Math.min(70, Math.floor((width * height) / 19000));
   const particles = Array.from({ length: particleCount }, () => {
     const x = Math.random() * width;
     const y = Math.random() * height;
@@ -1144,6 +1457,27 @@ function initAntigravityEffects() {
 
   const sparks = [];
   const ripples = [];
+
+  function triggerShockwave(x, y) {
+    ripples.push({
+      x,
+      y,
+      radius: 8,
+      maxRadius: 180,
+      alpha: 0.55
+    });
+
+    particles.forEach(p => {
+      const dx = p.x - x;
+      const dy = p.y - y;
+      const dist = Math.hypot(dx, dy);
+      if (dist < 220 && dist > 1) {
+        const force = ((220 - dist) / 220) * 6.5;
+        p.vx += (dx / dist) * force;
+        p.vy += (dy / dist) * force;
+      }
+    });
+  }
 
   window.addEventListener("mousemove", e => {
     mouse.vx = e.clientX - mouse.x;
@@ -1167,32 +1501,30 @@ function initAntigravityEffects() {
   });
 
   window.addEventListener("mousedown", e => {
-    ripples.push({
-      x: e.clientX,
-      y: e.clientY,
-      radius: 8,
-      maxRadius: 180,
-      alpha: 0.55
-    });
-
-    particles.forEach(p => {
-      const dx = p.x - e.clientX;
-      const dy = p.y - e.clientY;
-      const dist = Math.hypot(dx, dy);
-      if (dist < 220 && dist > 1) {
-        const force = ((220 - dist) / 220) * 6.5;
-        p.vx += (dx / dist) * force;
-        p.vy += (dy / dist) * force;
-      }
-    });
+    triggerShockwave(e.clientX, e.clientY);
   });
+
+  // Hỗ trợ tương tác chạm trên iPad và Điện thoại
+  window.addEventListener(
+    "touchstart",
+    e => {
+      if (e.touches && e.touches.length > 0) {
+        const t = e.touches[0];
+        mouse.x = t.clientX;
+        mouse.y = t.clientY;
+        mouse.active = true;
+        triggerShockwave(t.clientX, t.clientY);
+      }
+    },
+    { passive: true }
+  );
 
   function animate() {
     ctx.clearRect(0, 0, width, height);
 
     auraPos.x += (mouse.x - auraPos.x) * 0.14;
     auraPos.y += (mouse.y - auraPos.y) * 0.14;
-    if (aura) {
+    if (aura && !isTouchDevice) {
       aura.style.transform = `translate3d(${auraPos.x.toFixed(1)}px, ${auraPos.y.toFixed(1)}px, 0)`;
     }
 

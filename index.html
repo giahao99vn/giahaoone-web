@@ -2,7 +2,7 @@
 <html lang="vi" data-theme="light" prefix="og: https://ogp.me/ns#">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
   <!-- Primary SEO Meta Tags -->
   <title>Gia Hào One — Sản Phẩm In 3D (QIDI Max 4, Snapmaker U1) &amp; Phay CNC 3 Trục | giahaoone.com • giahao.vn</title>
@@ -43,12 +43,12 @@
   <meta name="twitter:description" content="Các dòng sản phẩm chế tác từ QIDI Max 4, Snapmaker U1 và Phay CNC 3 Trục của thương hiệu Gia Hào One (giahaoone.com • giahao.vn)." />
   <meta name="twitter:image" content="https://giahaoone.com/favicon.svg" />
 
-  <!-- Favicon & Web App Manifest (Hiển thị logo trên kết quả tìm kiếm Google) -->
+  <!-- Favicon & Web App Manifest -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" href="/favicon.svg" />
   <link rel="manifest" href="/site.webmanifest" />
 
-  <!-- Google Fonts: Inter & Plus Jakarta Sans (Apple / Google Geometric Aesthetic) -->
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
@@ -59,7 +59,7 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Structured Data JSON-LD (Schema.org: Organization, LocalBusiness, WebSite, ItemList Products, FAQPage) -->
+  <!-- Structured Data JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -268,6 +268,7 @@
         <a href="#products" class="nav-item" data-i18n="nav_products">Sản phẩm</a>
         <a href="#bento" class="nav-item" data-i18n="nav_craft">Công nghệ chế tác</a>
         <a href="#materials" class="nav-item" data-i18n="nav_materials">Chất liệu</a>
+        <a href="#faq-section" class="nav-item" data-i18n="nav_faq">Hỏi đáp</a>
         <a href="#contact" class="nav-item" data-i18n="nav_contact">Liên hệ</a>
       </nav>
 
@@ -288,7 +289,7 @@
           <i data-lucide="sun" class="icon-sun"></i>
         </button>
 
-        <a href="https://zalo.me/0704141237" target="_blank" rel="noopener" class="btn-pill btn-pill-primary btn-pill-sm">
+        <a href="https://zalo.me/0704141237" target="_blank" rel="noopener" class="btn-pill btn-pill-primary btn-pill-sm nav-zalo-btn">
           <span>Zalo 0704.141.237</span>
         </a>
 
@@ -330,60 +331,109 @@
           </div>
         </div>
 
-        <!-- Studio Showcase Stage -->
+        <!-- Interactive Studio Showcase Stage (Drag to Rotate + View Mode + Finish Swatches) -->
         <div class="hero-stage">
-          <div class="stage-card">
-            <div class="stage-visual">
-              <svg viewBox="0 0 800 360" class="studio-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mô phỏng sản phẩm In 3D QIDI Max 4, Snapmaker U1 và Phay CNC 3 Trục của Gia Hào One">
-                <defs>
-                  <linearGradient id="studioBody" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#0071e3" stop-opacity="0.16" />
-                    <stop offset="50%" stop-color="#6366f1" stop-opacity="0.1" />
-                    <stop offset="100%" stop-color="#00c7be" stop-opacity="0.16" />
-                  </linearGradient>
-                  <linearGradient id="accentStroke" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#0071e3" />
-                    <stop offset="50%" stop-color="#5e5ce6" />
-                    <stop offset="100%" stop-color="#00c7be" />
-                  </linearGradient>
-                  <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
-                    <feGaussianBlur stdDeviation="18" result="blur" />
-                  </filter>
-                </defs>
+          <div class="stage-card" id="interactive-stage-card">
+            <!-- Top Interactive Studio Controls Bar -->
+            <div class="studio-toolbar">
+              <div class="studio-modes" role="tablist" aria-label="Chế độ hiển thị mô hình">
+                <button type="button" class="mode-pill active" data-view-mode="studio">
+                  <i data-lucide="sparkles"></i>
+                  <span data-i18n="mode_studio">Bề mặt Studio</span>
+                </button>
+                <button type="button" class="mode-pill" data-view-mode="wireframe">
+                  <i data-lucide="box"></i>
+                  <span data-i18n="mode_wireframe">Khung dây CAD</span>
+                </button>
+                <button type="button" class="mode-pill" data-view-mode="toolpath">
+                  <i data-lucide="layers"></i>
+                  <span data-i18n="mode_toolpath">Lớp in &amp; Đường dao CNC</span>
+                </button>
+              </div>
 
-                <!-- Ambient Studio Spotlight -->
-                <ellipse cx="400" cy="185" rx="250" ry="110" fill="url(#studioBody)" filter="url(#softGlow)" />
+              <!-- Finish / Material Color Swatches (Apple Hardware Style) -->
+              <div class="studio-swatches">
+                <span class="swatch-label" id="swatch-active-name" data-i18n="finish_blue">Xanh Pro Titanium</span>
+                <div class="swatch-list" role="radiogroup" aria-label="Chọn màu chất liệu">
+                  <button type="button" class="swatch-dot active" data-finish="blue" style="--swatch-color: #0071e3;" aria-label="Pro Blue"></button>
+                  <button type="button" class="swatch-dot" data-finish="carbon" style="--swatch-color: #2c2c2e;" aria-label="Carbon Black"></button>
+                  <button type="button" class="swatch-dot" data-finish="silver" style="--swatch-color: #8e8e93;" aria-label="Aluminum 6061"></button>
+                  <button type="button" class="swatch-dot" data-finish="copper" style="--swatch-color: #d97706;" aria-label="Copper Gold"></button>
+                  <button type="button" class="swatch-dot" data-finish="teal" style="--swatch-color: #00a39b;" aria-label="Emerald PETG"></button>
+                </div>
+              </div>
+            </div>
 
-                <!-- Left Object: QIDI Max 4 Carbon Fiber Enclosure -->
-                <g transform="translate(185, 185)">
-                  <rect x="-85" y="-65" width="170" height="130" rx="26" fill="url(#studioBody)" stroke="url(#accentStroke)" stroke-width="2" />
-                  <rect x="-62" y="-44" width="124" height="88" rx="16" fill="none" stroke="currentColor" stroke-opacity="0.22" stroke-width="1.5" />
-                  <circle cx="0" cy="0" r="24" fill="none" stroke="#0071e3" stroke-width="2" />
-                  <circle cx="-44" cy="-28" r="4" fill="currentColor" fill-opacity="0.35" />
-                  <circle cx="44" cy="-28" r="4" fill="currentColor" fill-opacity="0.35" />
-                  <circle cx="-44" cy="28" r="4" fill="currentColor" fill-opacity="0.35" />
-                  <circle cx="44" cy="28" r="4" fill="currentColor" fill-opacity="0.35" />
-                </g>
+            <!-- Interactive 3D Drag/Touch Viewport -->
+            <div class="stage-visual" id="stage-viewport" title="Kéo chuột hoặc chạm vuốt để xoay góc nhìn 3D">
+              <div class="stage-rotate-wrapper" id="stage-rotate-wrapper">
+                <svg viewBox="0 0 800 340" class="studio-svg" id="hero-studio-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mô phỏng sản phẩm In 3D QIDI Max 4, Snapmaker U1 và Phay CNC 3 Trục của Gia Hào One">
+                  <defs>
+                    <linearGradient id="studioBody" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="var(--stage-primary, #0071e3)" stop-opacity="0.22" />
+                      <stop offset="50%" stop-color="var(--stage-secondary, #5e5ce6)" stop-opacity="0.12" />
+                      <stop offset="100%" stop-color="var(--stage-tertiary, #00c7be)" stop-opacity="0.2" />
+                    </linearGradient>
+                    <linearGradient id="accentStroke" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="var(--stage-primary, #0071e3)" />
+                      <stop offset="50%" stop-color="var(--stage-secondary, #5e5ce6)" />
+                      <stop offset="100%" stop-color="var(--stage-tertiary, #00c7be)" />
+                    </linearGradient>
+                    <pattern id="slicerPattern" width="12" height="6" patternUnits="userSpaceOnUse">
+                      <line x1="0" y1="3" x2="12" y2="3" stroke="var(--stage-primary, #0071e3)" stroke-width="1" stroke-opacity="0.45" />
+                    </pattern>
+                    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="18" result="blur" />
+                    </filter>
+                  </defs>
 
-                <!-- Center Object: 3-Axis CNC Milled Unibody Block -->
-                <g transform="translate(400, 178)">
-                  <polygon points="0,-96 126,-34 126,48 0,110 -126,48 -126,-34" fill="url(#studioBody)" stroke="url(#accentStroke)" stroke-width="2.4" stroke-linejoin="round" />
-                  <polygon points="0,-96 126,-34 0,28 -126,-34" fill="url(#studioBody)" stroke="url(#accentStroke)" stroke-width="1.8" stroke-linejoin="round" />
-                  <ellipse cx="0" cy="-34" rx="42" ry="21" fill="none" stroke="#0071e3" stroke-width="2.2" />
-                  <ellipse cx="0" cy="-26" rx="26" ry="13" fill="none" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.5" />
-                  <line x1="0" y1="28" x2="0" y2="110" stroke="url(#accentStroke)" stroke-width="2" />
-                </g>
+                  <!-- Ambient Studio Spotlight -->
+                  <ellipse cx="400" cy="175" rx="250" ry="105" fill="url(#studioBody)" filter="url(#softGlow)" />
 
-                <!-- Right Object: Snapmaker U1 Precision Component -->
-                <g transform="translate(615, 185)">
-                  <circle cx="0" cy="0" r="72" fill="url(#studioBody)" stroke="url(#accentStroke)" stroke-width="2" />
-                  <circle cx="0" cy="0" r="48" fill="none" stroke="currentColor" stroke-opacity="0.22" stroke-width="1.5" stroke-dasharray="6 6" />
-                  <circle cx="0" cy="0" r="20" fill="none" stroke="#0071e3" stroke-width="2.2" />
-                  <circle cx="0" cy="-36" r="5" fill="#0071e3" />
-                  <circle cx="31" cy="18" r="5" fill="#0071e3" />
-                  <circle cx="-31" cy="18" r="5" fill="#0071e3" />
-                </g>
-              </svg>
+                  <!-- CAD Dimension Lines (Visible in Wireframe & Toolpath modes) -->
+                  <g class="cad-overlay" opacity="0">
+                    <line x1="80" y1="45" x2="720" y2="45" stroke="var(--stage-primary, #0071e3)" stroke-width="1" stroke-dasharray="4 4" />
+                    <line x1="400" y1="25" x2="400" y2="315" stroke="var(--stage-primary, #0071e3)" stroke-width="1" stroke-dasharray="4 4" />
+                    <text x="90" y="38" fill="var(--stage-primary, #0071e3)" font-size="11" font-weight="600">CAD // X: 320.0mm • Y: 320.0mm</text>
+                    <text x="580" y="38" fill="var(--stage-primary, #0071e3)" font-size="11" font-weight="600">TOLERANCE: ±0.01mm</text>
+                  </g>
+
+                  <!-- Left Object: QIDI Max 4 Carbon Fiber Enclosure -->
+                  <g class="studio-object" transform="translate(185, 175)">
+                    <rect class="obj-fill" x="-85" y="-65" width="170" height="130" rx="26" fill="url(#studioBody)" stroke="url(#accentStroke)" stroke-width="2.2" />
+                    <rect class="obj-inner" x="-62" y="-44" width="124" height="88" rx="16" fill="none" stroke="currentColor" stroke-opacity="0.26" stroke-width="1.5" />
+                    <circle cx="0" cy="0" r="24" fill="none" stroke="var(--stage-primary, #0071e3)" stroke-width="2.2" />
+                    <circle cx="-44" cy="-28" r="4" fill="var(--stage-primary, #0071e3)" />
+                    <circle cx="44" cy="-28" r="4" fill="var(--stage-primary, #0071e3)" />
+                    <circle cx="-44" cy="28" r="4" fill="var(--stage-primary, #0071e3)" />
+                    <circle cx="44" cy="28" r="4" fill="var(--stage-primary, #0071e3)" />
+                  </g>
+
+                  <!-- Center Object: 3-Axis CNC Milled Unibody Block -->
+                  <g class="studio-object" transform="translate(400, 170)">
+                    <polygon class="obj-fill" points="0,-96 126,-34 126,48 0,110 -126,48 -126,-34" fill="url(#studioBody)" stroke="url(#accentStroke)" stroke-width="2.5" stroke-linejoin="round" />
+                    <polygon class="obj-fill" points="0,-96 126,-34 0,28 -126,-34" fill="url(#studioBody)" stroke="url(#accentStroke)" stroke-width="1.9" stroke-linejoin="round" />
+                    <ellipse cx="0" cy="-34" rx="42" ry="21" fill="none" stroke="var(--stage-primary, #0071e3)" stroke-width="2.4" />
+                    <ellipse class="obj-inner" cx="0" cy="-26" rx="26" ry="13" fill="none" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.5" />
+                    <line x1="0" y1="28" x2="0" y2="110" stroke="url(#accentStroke)" stroke-width="2.2" />
+                  </g>
+
+                  <!-- Right Object: Snapmaker U1 Precision Component -->
+                  <g class="studio-object" transform="translate(615, 175)">
+                    <circle class="obj-fill" cx="0" cy="0" r="72" fill="url(#studioBody)" stroke="url(#accentStroke)" stroke-width="2.2" />
+                    <circle class="obj-inner" cx="0" cy="0" r="48" fill="none" stroke="currentColor" stroke-opacity="0.28" stroke-width="1.6" stroke-dasharray="6 6" />
+                    <circle cx="0" cy="0" r="20" fill="none" stroke="var(--stage-primary, #0071e3)" stroke-width="2.2" />
+                    <circle cx="0" cy="-36" r="5" fill="var(--stage-primary, #0071e3)" />
+                    <circle cx="31" cy="18" r="5" fill="var(--stage-primary, #0071e3)" />
+                    <circle cx="-31" cy="18" r="5" fill="var(--stage-primary, #0071e3)" />
+                  </g>
+                </svg>
+              </div>
+
+              <div class="stage-hint">
+                <i data-lucide="move-3d"></i>
+                <span data-i18n="stage_drag_hint">Chạm hoặc kéo để xoay góc nhìn 3D</span>
+              </div>
             </div>
 
             <div class="stage-Specs-bar">
@@ -445,7 +495,7 @@
           </div>
         </div>
 
-        <!-- Product Cards Grid (Pre-rendered for instant SEO crawling + enhanced by script.js) -->
+        <!-- Product Cards Grid (Pre-rendered for SEO + enhanced by script.js) -->
         <div class="product-grid" id="products-grid">
           <article class="product-card" data-product-id="qidi-01">
             <div class="product-card-header">
@@ -611,15 +661,77 @@
       </div>
     </section>
 
-    <!-- Materials Section (Clean Apple Spec Comparison Style) -->
+    <!-- Materials Section + Interactive Material Advisor (Apple Spec Comparison Style) -->
     <section class="section" id="materials" aria-labelledby="mat-heading">
       <div class="container">
         <div class="section-heading">
           <span class="section-eyebrow" data-i18n="mat_eyebrow">Chất liệu tuyển chọn</span>
           <h2 class="section-title" id="mat-heading" data-i18n="mat_title">Vật liệu cấu thành sản phẩm.</h2>
           <p class="section-desc" data-i18n="mat_desc">
-            Mỗi chất liệu được lựa chọn kỹ lưỡng để phát huy tối đa công năng, độ bền và vẻ đẹp hoàn thiện của sản phẩm.
+            Chạm vào từng đặc tính bên dưới để so sánh trực quan thông số cơ lý hoặc xem bảng tổng hợp chi tiết.
           </p>
+        </div>
+
+        <!-- Interactive Material Performance Explorer -->
+        <div class="material-advisor-card">
+          <div class="advisor-header">
+            <span class="advisor-badge" data-i18n="adv_badge">TƯƠNG TÁC SO SÁNH THÔNG SỐ</span>
+            <h3 class="advisor-title" data-i18n="adv_title">Khám phá đặc tính kỹ thuật của từng nhóm vật liệu</h3>
+          </div>
+
+          <div class="advisor-pills" id="advisor-pills" role="tablist">
+            <button type="button" class="adv-pill active" data-mat-profile="pacf">
+              <span>PA-CF Carbon (QIDI Max 4)</span>
+            </button>
+            <button type="button" class="adv-pill" data-mat-profile="abs">
+              <span>ABS / ASA (QIDI Max 4)</span>
+            </button>
+            <button type="button" class="adv-pill" data-mat-profile="pla">
+              <span>PLA+ / PETG (Snapmaker U1)</span>
+            </button>
+            <button type="button" class="adv-pill" data-mat-profile="alu">
+              <span data-i18n="adv_btn_alu">Nhôm 6061 (CNC 3 Trục)</span>
+            </button>
+            <button type="button" class="adv-pill" data-mat-profile="pom">
+              <span data-i18n="adv_btn_pom">Nhựa POM / Đồng (CNC 3 Trục)</span>
+            </button>
+          </div>
+
+          <div class="advisor-body">
+            <div class="advisor-summary">
+              <span class="advisor-machine" id="adv-machine">QIDI Max 4 • High-Temp Composite</span>
+              <h4 class="advisor-mat-name" id="adv-name">Nhựa Sợi Carbon PA-CF / PETG-CF</h4>
+              <p class="advisor-mat-desc" id="adv-desc">
+                Kết hợp sợi Carbon siêu nhẹ và nền nhựa kỹ thuật chịu nhiệt, mang lại độ cứng cơ học vượt trội cho các dòng giá đỡ, ngàm kẹp và khung sườn chịu tải.
+              </p>
+            </div>
+
+            <div class="advisor-meters">
+              <div class="meter-row">
+                <div class="meter-label">
+                  <span data-i18n="meter_strength">Độ cứng vững &amp; Chịu lực</span>
+                  <strong id="val-strength">94%</strong>
+                </div>
+                <div class="meter-track"><div class="meter-fill" id="bar-strength" style="width: 94%;"></div></div>
+              </div>
+
+              <div class="meter-row">
+                <div class="meter-label">
+                  <span data-i18n="meter_heat">Khả năng chịu nhiệt &amp; Thời tiết</span>
+                  <strong id="val-heat">92%</strong>
+                </div>
+                <div class="meter-track"><div class="meter-fill" id="bar-heat" style="width: 92%;"></div></div>
+              </div>
+
+              <div class="meter-row">
+                <div class="meter-label">
+                  <span data-i18n="meter_finish">Độ mịn &amp; Tinh xảo bề mặt</span>
+                  <strong id="val-finish">88%</strong>
+                </div>
+                <div class="meter-track"><div class="meter-fill" id="bar-finish" style="width: 88%;"></div></div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="materials-card">
@@ -654,8 +766,56 @@
       </div>
     </section>
 
+    <!-- Interactive FAQ Accordion Section -->
+    <section class="section section-subtle" id="faq-section" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-eyebrow" data-i18n="faq_eyebrow">Giải đáp thông tin</span>
+          <h2 class="section-title" id="faq-heading" data-i18n="faq_title">Câu hỏi thường gặp về sản phẩm Gia Hào One.</h2>
+        </div>
+
+        <div class="faq-list" id="faq-list">
+          <div class="faq-item open">
+            <button type="button" class="faq-question" aria-expanded="true">
+              <span data-i18n="faq_q1">Gia Hào One cung cấp những dòng sản phẩm chủ lực nào?</span>
+              <i data-lucide="chevron-down" class="faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p data-i18n="faq_a1">
+                Gia Hào One (giahaoone.com &amp; giahao.vn) chuyên giới thiệu và cung cấp các dòng sản phẩm tự nghiên cứu, thiết kế và chế tạo hoàn thiện bằng máy in 3D QIDI Max 4, Snapmaker U1 và máy phay CNC 3 trục — bao gồm hộp kỹ thuật chịu nhiệt, giá đỡ nhựa sợi Carbon PA-CF, phụ kiện bàn làm việc thông minh và các chi tiết nhôm 6061, đồng, nhựa POM nguyên khối.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span data-i18n="faq_q2">Sự khác biệt giữa sản phẩm in từ QIDI Max 4 và Snapmaker U1 là gì?</span>
+              <i data-lucide="chevron-down" class="faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p data-i18n="faq_a2">
+                Dòng sản phẩm từ máy QIDI Max 4 sử dụng buồng nhiệt chủ động để in các loại nhựa kỹ thuật chịu lực và chịu nhiệt cao (ABS, ASA, PA-CF sợi Carbon) với kích thước lớn. Trong khi đó, dòng sản phẩm từ Snapmaker U1 tập trung vào độ mịn bề mặt, đường nét tinh xảo và độ khít cao cho các phụ kiện sáng tạo và mô hình cơ khí.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span data-i18n="faq_q3">Làm thế nào để liên hệ tư vấn hoặc đặt mua sản phẩm của Gia Hào One?</span>
+              <i data-lucide="chevron-down" class="faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p data-i18n="faq_a3">
+                Bạn có thể bấm trực tiếp vào sản phẩm quan tâm trên website giahaoone.com (hoặc giahao.vn) và nhắn tin qua Zalo 0704.141.237 để được tư vấn thông số kỹ thuật chi tiết và hỗ trợ giao hàng toàn quốc từ Gò Quao, Kiên Giang.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact Section (Apple / Google Clean Support & Inquiry Card) -->
-    <section class="section section-subtle" id="contact" aria-labelledby="contact-heading">
+    <section class="section" id="contact" aria-labelledby="contact-heading">
       <div class="container">
         <div class="contact-layout">
           <div class="contact-intro">
@@ -792,6 +952,7 @@
             <li><a href="#products" data-i18n="nav_products">Sản phẩm</a></li>
             <li><a href="#bento" data-i18n="nav_craft">Công nghệ chế tác</a></li>
             <li><a href="#materials" data-i18n="nav_materials">Chất liệu</a></li>
+            <li><a href="#faq-section" data-i18n="nav_faq">Hỏi đáp</a></li>
             <li><a href="#contact" data-i18n="nav_contact">Liên hệ</a></li>
           </ul>
         </div>
