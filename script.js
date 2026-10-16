@@ -859,17 +859,18 @@ function renderMaterialsTable(tabKey) {
   const tbody = document.getElementById("materials-tbody");
   if (!tbody) return;
 
+  const dict = I18N_DICT[currentLang];
   const group = MATERIALS_DATA[currentMaterialTab] || MATERIALS_DATA["3d"];
   const list = group[currentLang] || group.vi || [];
   tbody.innerHTML = list
     .map(
       row => `
       <tr>
-        <td class="mat-name">${row.name}</td>
-        <td><span class="mat-badge">${row.type}</span></td>
-        <td>${row.features}</td>
-        <td>${row.tolerance}</td>
-        <td>${row.usage}</td>
+        <td class="mat-name" data-label="${dict.th_mat}">${row.name}</td>
+        <td data-label="${dict.th_sys}"><span class="mat-badge">${row.type}</span></td>
+        <td data-label="${dict.th_feat}">${row.features}</td>
+        <td data-label="${dict.th_finish}">${row.tolerance}</td>
+        <td data-label="${dict.th_app}">${row.usage}</td>
       </tr>
     `
     )
@@ -910,15 +911,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Menu trên điện thoại
+  // Menu trên điện thoại (Tự động đóng khi chọn mục hoặc chạm ra ngoài)
   const mobileBtn = document.getElementById("mobile-menu-btn");
   const navLinks = document.getElementById("nav-links");
+  const navbar = document.getElementById("navbar");
   if (mobileBtn && navLinks) {
-    mobileBtn.addEventListener("click", () => {
+    mobileBtn.addEventListener("click", e => {
+      e.stopPropagation();
       navLinks.classList.toggle("open");
     });
     navLinks.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => navLinks.classList.remove("open"));
+    });
+    document.addEventListener("click", e => {
+      if (navbar && !navbar.contains(e.target)) {
+        navLinks.classList.remove("open");
+      }
     });
   }
 

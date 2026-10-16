@@ -580,7 +580,7 @@ ul {
 /* Studio Product Cards */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr));
   gap: 26px;
 }
 
@@ -1279,7 +1279,7 @@ a.info-tile:hover {
 }
 
 /* ==========================================================================
-   RESPONSIVE BREAKPOINTS
+   RESPONSIVE BREAKPOINTS (OPTIMIZED FOR ALL MOBILE PHONES & TABLETS)
    ========================================================================== */
 @media (max-width: 992px) {
   .bento-grid {
@@ -1291,47 +1291,330 @@ a.info-tile:hover {
   .contact-layout,
   .footer-top {
     grid-template-columns: 1fr;
+    gap: 32px;
   }
 }
 
 @media (max-width: 768px) {
-  .domain-pills {
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Header & Navigation */
+  .nav-container {
+    padding: 0 16px;
+    gap: 8px;
+  }
+  .domain-pills,
+  .nav-utilities .btn-pill-sm {
     display: none;
   }
   .nav-menu {
     display: none;
     position: absolute;
     top: 60px;
-    left: 0;
-    right: 0;
+    left: 12px;
+    right: 12px;
     background: var(--bg-card);
-    border-bottom: 1px solid var(--border-hairline);
+    border: 1px solid var(--border-hairline);
+    border-radius: 20px;
     flex-direction: column;
-    padding: 20px 24px;
-    gap: 16px;
-    box-shadow: var(--shadow-card);
+    align-items: stretch;
+    padding: 12px;
+    gap: 4px;
+    box-shadow: var(--shadow-hover);
   }
   .nav-menu.open {
     display: flex;
   }
+  .nav-item {
+    font-size: 0.96rem;
+    font-weight: 600;
+    padding: 12px 14px;
+    border-radius: 12px;
+    color: var(--text-main);
+  }
+  .nav-item:active,
+  .nav-item:hover {
+    background: var(--bg-subtle);
+  }
   .mobile-toggle {
     display: inline-flex;
   }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 36px 0 32px;
+  }
+  .hero-center {
+    margin-bottom: 28px;
+  }
+  .eyebrow-pill {
+    max-width: 100%;
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    white-space: normal;
+    text-align: center;
+  }
+  .display-title {
+    font-size: clamp(1.85rem, 7.2vw, 2.5rem);
+    line-height: 1.16;
+    margin-bottom: 16px;
+  }
+  .hero-lead {
+    font-size: 0.96rem;
+    margin-bottom: 24px;
+  }
+  .stage-card {
+    border-radius: 22px;
+  }
+  .stage-visual {
+    padding: 14px 12px 6px;
+  }
   .stage-Specs-bar {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 14px;
+    padding: 18px 16px;
   }
   .stage-divider {
-    display: none;
+    width: 100%;
+    height: 1px;
   }
-  .field-row,
-  .modal-grid,
-  .materials-segmented {
-    grid-template-columns: 1fr;
+
+  /* Sections & Headings */
+  .section {
+    padding: 56px 0;
+  }
+  .section-heading {
+    margin-bottom: 28px;
+  }
+  .section-title {
+    font-size: clamp(1.55rem, 6vw, 2.1rem);
+  }
+  .section-desc {
+    font-size: 0.95rem;
+  }
+
+  /* Product Filter Segmented Control (2x2 Grid on Mobile) & Search */
+  .toolbar {
     flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-bottom: 24px;
   }
+  .segmented-control {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    border-radius: 18px;
+    padding: 6px;
+    gap: 6px;
+  }
+  .segment-btn {
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-radius: 12px;
+    font-size: 0.82rem;
+    white-space: nowrap;
+  }
+  .apple-search {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .apple-search input,
+  .field-group input,
+  .field-group select,
+  .field-group textarea {
+    font-size: 16px; /* Ngăn trình duyệt iOS Safari tự phóng to khi bấm vào ô nhập */
+  }
+
+  /* Product Cards & Bento Cards */
   .product-grid {
     grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .product-card,
+  .bento-card,
+  .inquiry-card {
+    padding: 22px 18px;
+    border-radius: 22px;
+  }
+  .product-thumb {
+    height: 180px;
+  }
+  .product-title {
+    font-size: 1.16rem;
+  }
+
+  /* Materials Table -> Stacked Mobile Spec Cards */
+  .materials-card {
+    border-radius: 22px;
+  }
+  .materials-segmented {
+    flex-direction: column;
+    padding: 6px;
+    gap: 6px;
+  }
+  .mat-tab-btn {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 0.85rem;
+    border-radius: 14px;
+    white-space: normal;
+    text-align: left;
+    justify-content: flex-start;
+  }
+  .apple-table,
+  .apple-table tbody,
+  .apple-table tr,
+  .apple-table td {
+    display: block;
+    width: 100%;
+  }
+  .apple-table thead {
+    display: none;
+  }
+  .apple-table tr {
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--border-hairline);
+  }
+  .apple-table tr:last-child {
+    border-bottom: none;
+  }
+  .apple-table td {
+    padding: 6px 0;
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 0.9rem;
+  }
+  .apple-table td::before {
+    content: attr(data-label);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+  }
+  .apple-table td.mat-name {
+    font-size: 1.05rem;
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+    border-bottom: 1px dashed var(--border-hairline);
+  }
+  .apple-table td.mat-name::before {
+    display: none;
+  }
+
+  /* Contact & Form */
+  .info-tile {
+    padding: 14px 16px;
+    gap: 12px;
+    border-radius: 18px;
+  }
+  .tile-body {
+    min-width: 0;
+  }
+  .tile-value {
+    font-size: 0.9rem;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  .field-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* Modal as Native iOS Bottom Sheet on Mobile */
+  .modal-backdrop {
+    align-items: flex-end;
+    padding: 0;
+  }
+  .modal-sheet {
+    border-radius: 26px 26px 0 0;
+    max-height: 90dvh;
+    padding-bottom: env(safe-area-inset-bottom, 16px);
+  }
+  .modal-grid {
+    grid-template-columns: 1fr;
+    padding: 24px 18px;
+    gap: 18px;
+  }
+  .modal-visual-box {
+    min-height: 170px;
+    max-height: 195px;
+  }
+  .modal-spec-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  /* Footer & Floating Bar */
+  .site-footer {
+    padding: 40px 0 96px; /* Chừa khoảng trống cho nút Zalo nổi ở đáy màn hình */
+  }
+  .floating-bar {
+    bottom: max(16px, env(safe-area-inset-bottom, 16px));
+    right: 16px;
+    left: 16px;
+    justify-content: flex-end;
+    pointer-events: none;
+  }
+  .float-pill {
+    pointer-events: auto;
+    padding: 11px 16px;
+    font-size: 0.84rem;
+  }
+  .float-call {
+    padding: 11px;
+  }
+}
+
+/* Màn hình điện thoại cỡ vừa & nhỏ (<= 480px) */
+@media (max-width: 480px) {
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-actions .btn-pill {
+    width: 100%;
+  }
+  .product-footer {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+/* Màn hình điện thoại cỡ siêu nhỏ (<= 360px như iPhone SE / Galaxy Fold) */
+@media (max-width: 360px) {
+  .container,
+  .nav-container {
+    padding: 0 12px;
+  }
+  .brand-title {
+    font-size: 0.98rem;
+  }
+  .lang-btn {
+    padding: 3px 7px;
+    font-size: 0.68rem;
+  }
+  .segmented-control {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tối ưu thiết bị cảm ứng (Touch Devices): Tắt nghiêng 3D khi vuốt cuộn trang */
+@media (hover: none), (pointer: coarse) {
+  .cursor-aura {
+    display: none;
+  }
+  .product-card,
+  .bento-card {
+    transform: none !important;
   }
 }
 
